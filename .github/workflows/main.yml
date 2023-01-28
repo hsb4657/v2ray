@@ -4,6 +4,8 @@ jobs:
   update_node:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout    # 获取分支的代码和提交记录
+        uses: actions/checkout@v2
       - name: ls file
         shell: bash
         run: ls .
