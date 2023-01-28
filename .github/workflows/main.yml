@@ -21,6 +21,8 @@ jobs:
              git config --global user.email 619744299@qq.com
              git config --global user.name hsb4657
              git add .
-             git commit -m'update ${{env.currentDate}}.yaml'
-             git push
-      
+             git commit -m'update ${{env.currentDate}}.yaml'    
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
