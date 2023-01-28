@@ -16,12 +16,21 @@ jobs:
         run: |
              curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yaml' -o ${{env.currentDate}}.yaml
              ls .
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8      
+      - name: Add auto node
+        run: |
+              pip install pyyaml
+              python auto.py ${{env.currentDate}}.yaml lastest.yaml
+              rm -rf ${{env.currentDate}}.yaml            
       - name: Update git
         run: |
              git config --global user.email 619744299@qq.com
              git config --global user.name hsb4657
              git add .
-             git commit -m'update ${{env.currentDate}}.yaml'    
+             git commit -m'update ${{env.currentDate}}'    
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
