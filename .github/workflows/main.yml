@@ -14,6 +14,11 @@ jobs:
       - name: Downlod file
         shell: bash
         run: |
-             curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yam' -o temp.yaml
+             curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yaml' -o ${{env.currentDate}}.yaml
              ls .
-             cat temp.yaml
+      - name: Update git
+        run: |
+             git add .
+             git commit -m'update ${{env.currentDate}}.yaml'
+             git push
+      
