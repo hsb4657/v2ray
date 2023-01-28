@@ -18,6 +18,8 @@ jobs:
              ls .
       - name: Update git
         run: |
+             git config --global user.email 619744299@qq.com
+             git config --global user.name hsb4657
              git add .
              git commit -m'update ${{env.currentDate}}.yaml'
              git push
