@@ -1,5 +1,7 @@
 name: 'Update Node'
-on: workflow_dispatch
+on: 
+  schedule:
+    - cron: '0 10,16,23 * * *'
 jobs:
   update_node:
     runs-on: ubuntu-latest
