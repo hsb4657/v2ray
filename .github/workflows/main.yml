@@ -16,3 +16,4 @@ jobs:
         run: |
              curl 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yam' -o temp.yaml
              ls .
+             cat temp.yaml
