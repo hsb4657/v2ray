@@ -5,17 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get current date
-        id: date
         run: |
-             echo "currentDay=$(date +'%d')" >> $GITHUB_OUTPUT
-             echo "currentMouth=$(date +'%m')" >> $GITHUB_OUTPUT
-             echo "currentYear=$(date +'%Y')" >> $GITHUB_OUTPUT
+             echo "currentDay=$(date +'%d')" >> $GITHUB_ENV
+             echo "currentMouth=$(date +'%m')" >> $GITHUB_ENV
+             echo "currentYear=$(date +'%Y')" >> $GITHUB_ENV
       - name: Checkout    # 获取分支的代码和提交记录
         uses: actions/checkout@v2
       - name: ls file
         shell: bash
         run: |
-             echo "currentDay : ${{ GITHUB_OUTPUT.currentDay }}"
-             echo "currentMouth : ${{ GITHUB_OUTPUT.currentMouth }}"
-             echo "currentYear : ${{ GITHUB_OUTPUT.currentYear }}"
+             echo "currentDay : ${{ env.currentDay }}"
+             echo "currentMouth : ${{ env.currentMouth }}"
+             echo "currentYear : ${{ env.currentYear }}"
              ls .
