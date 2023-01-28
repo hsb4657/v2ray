@@ -1,0 +1,12 @@
+name: 'Update Node'
+on:
+  schedule:
+    - cron: '0 6,12,18 * * *'
+jobs:
+  update_node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ls file
+        shell: bash
+        run: ls
+    
