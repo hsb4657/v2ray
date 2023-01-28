@@ -14,5 +14,5 @@ jobs:
       - name: Downlod file
         shell: bash
         run: |
-             curl 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yaml' -o temp.yaml
+             curl 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yam' -o temp.yaml
              ls .
