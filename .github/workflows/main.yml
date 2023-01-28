@@ -3,18 +3,19 @@ on: workflow_dispatch
 jobs:
   update_node:
     runs-on: ubuntu-latest
-    env:
-       currentDay: $(date +'%d')
-       currentMouth: $(date +'%m')
-       currentYear: $(date +'%Y')
     steps:
+      - name: Get current date
+        id: date
+        run: |
+             echo "currentDay=$(date +'%d')" >> $GITHUB_OUTPUT
+             echo "currentMouth=$(date +'%m')" >> $GITHUB_OUTPUT
+             echo "currentYear=$(date +'%Y')" >> $GITHUB_OUTPUT
       - name: Checkout    # 获取分支的代码和提交记录
         uses: actions/checkout@v2
       - name: ls file
         shell: bash
         run: |
-             echo "currentDay : $currentDay"
-             echo "currentMouth : $currentMouth"
-             echo "currentYear : $currentYear"
+             echo "currentDay : ${{ GITHUB_OUTPUT.currentDay }}"
+             echo "currentMouth : ${{ GITHUB_OUTPUT.currentMouth }}"
+             echo "currentYear : ${{ GITHUB_OUTPUT.currentYear }}"
              ls .
-    
