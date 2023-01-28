@@ -3,20 +3,18 @@ on: workflow_dispatch
 jobs:
   update_node:
     runs-on: ubuntu-latest
+    env:
+       currentDay: $(date +'%d')
+       currentMouth: $(date +'%m')
+       currentYear: $(date +'%Y')
     steps:
-      - name: Get current date
-        id: date
-        run: |
-             echo "::set-output name=currentDay::$(date +'%d')"
-             echo "::set-output name=currentMouth::$(date +'%m')"
-             echo "::set-output name=currentYear::$(date +'%Y')"
       - name: Checkout    # 获取分支的代码和提交记录
         uses: actions/checkout@v2
       - name: ls file
         shell: bash
         run: |
-             echo "currentDay : ${{ steps.date.outputs.currentDay }}"
-             echo "currentMouth : ${{ steps.date.outputs.currentMouth }}"
-             echo "currentYear : ${{ steps.date.outputs.currentYear }}"
+             echo "currentDay : $currentDay"
+             echo "currentMouth : $currentMouth"
+             echo "currentYear : $currentYear"
              ls .
     
