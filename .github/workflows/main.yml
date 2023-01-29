@@ -1,7 +1,7 @@
 name: 'Update Node'
 on: 
   schedule:
-    - cron: '0 10,16,23 * * *'
+    - cron: '0 * * * *'
 jobs:
   update_node:
     runs-on: ubuntu-latest
