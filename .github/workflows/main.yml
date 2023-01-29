@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: Get current date
         run: |
-             echo "currentDate=$(date +'%Y%m%d')" >> $GITHUB_ENV
-             echo "currentMouth=$(date +'%m')" >> $GITHUB_ENV
-             echo "currentYear=$(date +'%Y')" >> $GITHUB_ENV
+             echo "currentDate=$(TZ=':Asia/Shanghai' date '+%Y%m%d')" >> $GITHUB_ENV
+             echo "currentMouth=$(TZ=':Asia/Shanghai' date '+%m')" >> $GITHUB_ENV
+             echo "currentYear=$(TZ=':Asia/Shanghai' date '+%Y')" >> $GITHUB_ENV
       - name: Checkout    # 获取分支的代码和提交记录
         uses: actions/checkout@v2
       - name: Downlod file
