@@ -1430,5 +1430,4 @@ rules:
 - DOMAIN-SUFFIX,brandshow.58.com,🛑 全球拦截
 - DOMAIN-SUFFIX,imp.xgo.com.cn,🛑 全球拦截
 - DOMAIN-SUFFIX,jing.58.com,🛑 全球拦截
-- DOMAIN-SUF
 socks-port: 7891
