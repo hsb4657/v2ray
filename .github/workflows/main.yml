@@ -1,7 +1,7 @@
 name: 'Update Node'
-on: #workflow_dispatch
-  schedule:
-    - cron: '0 */4 * * *'
+on: workflow_dispatch
+#   schedule:
+#     - cron: '0 */4 * * *'
 jobs:
   update_node:
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
           python-version: 3.8      
       - name: Add auto node
         run: |
-              pip install pyyaml
+              pip install ruamel.yaml
               python auto.py ${{env.currentDate}}.yaml lastest.yaml
               rm -rf ${{env.currentDate}}.yaml            
       - name: Update git
