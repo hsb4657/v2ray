@@ -32,10 +32,11 @@ jobs:
              git config --global user.email 619744299@qq.com
              git config --global user.name hsb4657
              git add .
+             git status -s --untracked-files=no
              echo 'needPush<<EOF' >> $GITHUB_ENV
              git status -s --untracked-files=no >> $GITHUB_ENV
              echo 'EOF' >> $GITHUB_ENV
-             echo ${{env.needPush}}
+             echo '${{env.needPush}}'
              git commit -m'update ${{env.currentDate}}'    
       - name: Push changes
         uses: ad-m/github-push-action@master
