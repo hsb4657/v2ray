@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Get current date
         run: |
-             echo "currentTime=$(TZ=':Asia/Shanghai' date '+%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+             echo "currentTime=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
              echo "currentDate=$(TZ=':Asia/Shanghai' date '+%Y%m%d')" >> $GITHUB_ENV
              echo "currentMouth=$(TZ=':Asia/Shanghai' date '+%m')" >> $GITHUB_ENV
              echo "currentYear=$(TZ=':Asia/Shanghai' date '+%Y')" >> $GITHUB_ENV
@@ -32,7 +32,7 @@ jobs:
         run: |
              git config --global user.email 619744299@qq.com
              git config --global user.name hsb4657
-             echo 'update ${{env.currentTime}}' >> README.md
+             echo ' update ${{env.currentTime}}' >> README.md
              git add .
              git commit -m'update ${{env.currentTime}}'    
       - name: Push changes
