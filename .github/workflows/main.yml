@@ -1,7 +1,7 @@
 name: 'Update Node'
-on: #workflow_dispatch
-  schedule:
-    - cron: '0 */4 * * *'
+on: workflow_dispatch
+#  schedule:
+#    - cron: '0 */4 * * *'
 jobs:
   update_node:
     runs-on: ubuntu-latest
@@ -32,6 +32,9 @@ jobs:
              git config --global user.email 619744299@qq.com
              git config --global user.name hsb4657
              git add .
+             git status -s --untracked-files=no >> status.txx
+             echo "needPush=$(cat status.txx)" >> $GITHUB_ENV
+             echo ${{env.needPush}}
              git commit -m'update ${{env.currentDate}}'    
       - name: Push changes
         uses: ad-m/github-push-action@master
