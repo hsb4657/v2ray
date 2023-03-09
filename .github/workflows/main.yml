@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Get current date
         run: |
+             echo "currentTime=$(TZ=':Asia/Shanghai' date '+%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
              echo "currentDate=$(TZ=':Asia/Shanghai' date '+%Y%m%d')" >> $GITHUB_ENV
              echo "currentMouth=$(TZ=':Asia/Shanghai' date '+%m')" >> $GITHUB_ENV
              echo "currentYear=$(TZ=':Asia/Shanghai' date '+%Y')" >> $GITHUB_ENV
@@ -31,13 +32,9 @@ jobs:
         run: |
              git config --global user.email 619744299@qq.com
              git config --global user.name hsb4657
+             echo 'update ${{env.currentTime}}' >> README.md
              git add .
-             git status -s --untracked-files=no
-             echo 'needPush<<EOF' >> $GITHUB_ENV
-             git status -s --untracked-files=no >> $GITHUB_ENV
-             echo 'EOF' >> $GITHUB_ENV
-             echo '${{env.needPush}}'
-             git commit -m'update ${{env.currentDate}}'    
+             git commit -m'update ${{env.currentTime}}'    
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
