@@ -26,6 +26,7 @@ jobs:
           python-version: 3.8      
       - name: Add auto node
         run: |
+              rm -rf lastest.yaml
               python auto.py ${{env.currentDate}}.yaml lastest.yaml
               rm -rf ${{env.currentDate}}.yaml            
       - name: Update git
