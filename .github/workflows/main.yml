@@ -19,7 +19,7 @@ jobs:
         run: |
              curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yaml' -o ${{env.currentDate}}.yaml
              curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.txt' -o lastest.txt
-             ls .
+             ls -al .
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
@@ -28,7 +28,8 @@ jobs:
         run: |
               rm -rf lastest.yaml
               python auto.py ${{env.currentDate}}.yaml lastest.yaml
-              rm -rf ${{env.currentDate}}.yaml            
+              rm -rf ${{env.currentDate}}.yaml
+              ls -al .
       - name: Update git
         run: |
              git config --global user.email 619744299@qq.com
