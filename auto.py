@@ -44,3 +44,4 @@ if __name__ == '__main__':
             lines.insert(auto_row, auto_sel)
         with open(sys.argv[2], 'w', encoding="utf-8") as f2:
             f2.writelines(lines)
+            print("update file")
