@@ -17,8 +17,8 @@ jobs:
       - name: Downlod file
         shell: bash
         run: |
-             curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yaml' -o ${{env.currentDate}}.yaml
-             curl -f 'https://v2rayshare.com/wp-content/uploads/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.txt' -o lastest.txt
+             curl -f 'https://v2rayshare.githubrowcontent.com/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.yaml' -o ${{env.currentDate}}.yaml
+             curl -f 'https://v2rayshare.githubrowcontent.com/${{env.currentYear}}/${{env.currentMouth}}/${{env.currentDate}}.txt' -o lastest.txt
              ls -al .
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
